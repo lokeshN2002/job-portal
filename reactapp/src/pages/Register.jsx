@@ -48,31 +48,37 @@ function Register() {
       <div className="backgroundimage-login">
         <img src={home} alt="background" />
       </div>
-      <div className="layout">
+      <div className="layout glass-card gpu-accelerated">
         <form className="loginform" onSubmit={handleRegister}>
           {!success && (
             <>
-              <h2>Register</h2>
+              <h2 className="font-heading text-gradient-primary">Register</h2>
               <p>(*) fields are required</p>
               <input
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="*Username"
+                required
+                className="form-input"
               />
               <input
                 type="password"
                 value={pwd1}
                 onChange={(e) => setPwd1(e.target.value)}
                 placeholder="*Password (min 3 characters)"
+                required
+                className="form-input"
               />
               <input
                 type="password"
                 value={pwd2}
                 onChange={(e) => setPwd2(e.target.value)}
                 placeholder="*Re-enter Password"
+                required
+                className="form-input"
               />
-              <button type="submit">Register</button>
+              <button type="submit" className="btn-primary">Register</button>
             </>
           )}
 
@@ -80,6 +86,12 @@ function Register() {
             <div className={`message ${success ? 'success' : 'error'}`}>
               {message} {success && <a href="/">kick to login</a>}
             </div>
+          )}
+          {!success && (
+            <p>
+              Already have an account? Click here to{' '}
+              <a href="/">Login</a>
+            </p>
           )}
         </form>
       </div>
