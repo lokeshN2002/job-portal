@@ -1,0 +1,730 @@
+/* ========================================
+   LOGIN PAGE SPECIFIC STYLES
+   ========================================
+   Note: Common styles are now in index.css
+   ======================================== */
+
+html {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+.overallcontainer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.backgroundimage-login {
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+.backgroundimage-login img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: scale(1.05);
+  filter: blur(2px);
+}
+
+.layout {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 450px;
+    width: 90%;
+    margin: 0 auto;
+    animation: slideIn 0.6s ease-out both;
+    z-index: 10;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loginform {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 35px;
+    gap: 20px;
+}
+
+.loginform h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+
+/* Login inputs extend form-input class from index.css */
+.loginform input {
+    /* Additional login-specific styling can go here */
+}
+
+.loginform input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px var(--brand-blue-10);
+    transform: translateY(-2px);
+}
+
+.loginform input::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+/* Login buttons extend btn-primary class from index.css */
+.loginform button {
+    border-radius: 12px; /* Override rounded corners for login */
+    margin-top: 10px;
+}
+
+.loginform button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px var(--brand-blue-30);
+}
+
+.loginform button:active {
+    transform: translateY(0);
+}
+
+.loginform h1 {
+    text-align: center;
+    color: #10b981;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Registration specific styles */
+.loginform p {
+    color: #292929;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Message paragraph styling */
+.loginform .message {
+    border-radius: 12px;
+    padding: 15px 18px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-style: normal;
+    opacity: 1;
+    animation: slideInMessage 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+/* Success message styling */
+.loginform .message.success {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.1));
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #047857;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+    padding-left: 45px;
+}
+
+.loginform .message.success::before {
+    content: '✓';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #10b981;
+}
+
+/* Error message styling */
+.loginform .message.error {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.1));
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #dc2626;
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2);
+    padding-left: 45px;
+}
+
+.loginform .message.error::before {
+    content: '⚠';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ef4444;
+}
+
+/* Message animation */
+@keyframes slideInMessage {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Anchor tag styling */
+.loginform a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 2px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.loginform a:hover {
+    color: #5a67d8;
+    transform: translateY(-1px);
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+    .backgroundimage-login {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .layout {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .loginform {
+        padding: 35px 30px;
+        gap: 18px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .backgroundimage-login {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .layout {
+        max-width: 380px;
+        margin: 0 auto;
+        border-radius: 16px;
+    }
+
+    .loginform {
+        padding: 30px 25px;
+        gap: 16px;
+    }
+
+    .loginform h2 {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+    }
+
+    .loginform input {
+        padding: 14px 18px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+    .loginform button {
+        padding: 14px 28px;
+        font-size: 15px;
+        border-radius: 10px;
+        margin-top: 8px;
+    }
+
+    .loginform p {
+        font-size: 0.85rem;
+    }
+
+
+
+    .loginform .message {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+
+    .loginform .message.success,
+    .loginform .message.error {
+        padding-left: 35px;
+    }
+
+    .loginform .message.success::before,
+    .loginform .message.error::before {
+        font-size: 1rem;
+        left: 12px;
+    }
+}
+
+/* Large mobile phones */
+@media (max-width: 640px) {
+    .backgroundimage-login {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .layout {
+        max-width: 340px;
+        margin: 0 auto;
+        border-radius: 14px;
+    }
+
+    .loginform {
+        padding: 28px 22px;
+        gap: 14px;
+    }
+
+    .loginform h2 {
+        font-size: 1.6rem;
+        margin-bottom: 6px;
+    }
+
+    .loginform input {
+        padding: 12px 16px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .loginform button {
+        padding: 12px 24px;
+        font-size: 14px;
+        border-radius: 8px;
+        margin-top: 6px;
+    }
+
+    .loginform p {
+        font-size: 0.8rem;
+    }
+
+
+
+    .loginform .message {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .loginform .message.success,
+    .loginform .message.error {
+        padding-left: 32px;
+    }
+
+    .loginform .message.success::before,
+    .loginform .message.error::before {
+        font-size: 0.9rem;
+        left: 10px;
+    }
+
+    .loginform a {
+        font-size: 0.85rem;
+        padding: 2px 4px;
+    }
+}
+
+/* Standard mobile phones */
+@media (max-width: 480px) {
+    .backgroundimage-login {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .layout {
+        max-width: 300px;
+        margin: 0 auto;
+        border-radius: 12px;
+        width: 95%;
+    }
+
+    .loginform {
+        padding: 25px 20px;
+        gap: 12px;
+    }
+
+    .loginform h2 {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+    }
+
+    .loginform input {
+        padding: 11px 15px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .loginform button {
+        padding: 11px 22px;
+        font-size: 14px;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+
+    .loginform h1 {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .loginform p {
+        font-size: 0.75rem;
+    }
+
+
+
+    .loginform .message {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    .loginform .message.success,
+    .loginform .message.error {
+        padding-left: 28px;
+    }
+
+    .loginform .message.success::before,
+    .loginform .message.error::before {
+        font-size: 0.8rem;
+        left: 8px;
+    }
+
+    .loginform a {
+        font-size: 0.8rem;
+        padding: 2px 4px;
+        margin-left: 4px;
+    }
+}
+
+/* Small mobile phones */
+@media (max-width: 360px) {
+    .backgroundimage-login {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .layout {
+        max-width: 280px;
+        width: 98%;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+
+    .loginform {
+        padding: 20px 15px;
+        gap: 10px;
+    }
+
+    .loginform h2 {
+        font-size: 1.3rem;
+        margin-bottom: 3px;
+    }
+
+    .loginform input {
+        padding: 10px 12px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+
+    .loginform button {
+        padding: 10px 18px;
+        font-size: 13px;
+        border-radius: 6px;
+        margin-top: 3px;
+    }
+
+    .loginform h1 {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+
+    .loginform p {
+        font-size: 0.7rem;
+    }
+
+
+
+    .loginform .message {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+
+    .loginform .message.success,
+    .loginform .message.error {
+        padding-left: 25px;
+    }
+
+    .loginform .message.success::before,
+    .loginform .message.error::before {
+        font-size: 0.75rem;
+        left: 6px;
+    }
+
+    .loginform a {
+        font-size: 0.75rem;
+        padding: 1px 3px;
+        margin-left: 3px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 320px) {
+    .backgroundimage-login {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .layout {
+        max-width: 260px;
+        width: 99%;
+        margin: 0 auto;
+        border-radius: 8px;
+    }
+
+    .loginform {
+        padding: 18px 12px;
+        gap: 8px;
+    }
+
+    .loginform h2 {
+        font-size: 1.2rem;
+        margin-bottom: 2px;
+    }
+
+    .loginform input {
+        padding: 9px 10px;
+        font-size: 12px;
+        border-radius: 5px;
+    }
+
+    .loginform button {
+        padding: 9px 15px;
+        font-size: 12px;
+        border-radius: 5px;
+        margin-top: 2px;
+        letter-spacing: 0.5px;
+    }
+
+    .loginform h1 {
+        font-size: 0.85rem;
+        padding: 5px;
+    }
+
+    .loginform p {
+        font-size: 0.65rem;
+    }
+
+
+
+    .loginform .message {
+        padding: 5px 6px;
+        font-size: 0.75rem;
+        border-radius: 8px;
+    }
+
+    .loginform .message.success,
+    .loginform .message.error {
+        padding-left: 22px;
+    }
+
+    .loginform .message.success::before,
+    .loginform .message.error::before {
+        font-size: 0.7rem;
+        left: 5px;
+    }
+
+    .loginform a {
+        font-size: 0.7rem;
+        padding: 1px 2px;
+        margin-left: 2px;
+    }
+}
+
+/* Beautiful Floating Particles Animation */
+.overallcontainer::before {
+    content: '';
+    position: fixed;
+    top: 20%;
+    left: 15%;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--brand-blue-15), var(--brand-purple-10));
+    animation: floatParticle1 8s ease-in-out infinite;
+    z-index: 1;
+}
+
+.overallcontainer::after {
+    content: '';
+    position: fixed;
+    bottom: 25%;
+    right: 20%;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--brand-purple-12), var(--brand-blue-10));
+    animation: floatParticle2 10s ease-in-out infinite reverse;
+    z-index: 1;
+}
+
+/* Additional floating elements */
+.backgroundimage-login::before {
+    content: '';
+    position: fixed;
+    top: 60%;
+    left: 5%;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    animation: floatParticle3 12s ease-in-out infinite;
+    z-index: 1;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.backgroundimage-login::after {
+    content: '';
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.06), rgba(102, 126, 234, 0.04));
+    border-radius: 50%;
+    animation: floatParticle4 9s ease-in-out infinite;
+    z-index: 1;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+@keyframes floatParticle1 {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-30px) translateX(15px) rotate(90deg);
+    }
+    50% {
+        transform: translateY(-20px) translateX(-10px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(-40px) translateX(20px) rotate(270deg);
+    }
+}
+
+@keyframes floatParticle2 {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+    }
+    33% {
+        transform: translateY(-25px) translateX(-20px) scale(1.1);
+    }
+    66% {
+        transform: translateY(-35px) translateX(15px) scale(0.9);
+    }
+}
+
+@keyframes floatParticle3 {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-45px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+@keyframes floatParticle4 {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    25% {
+        transform: translateY(-20px) translateX(-15px);
+    }
+    50% {
+        transform: translateY(-35px) translateX(10px);
+    }
+    75% {
+        transform: translateY(-15px) translateX(25px);
+    }
+}
+
+/* Hide floating elements on small screens for better performance */
+@media (max-width: 768px) {
+    .overallcontainer::before,
+    .overallcontainer::after,
+    .backgroundimage-login::before,
+    .backgroundimage-login::after {
+        display: none;
+    }
+}

@@ -1,0 +1,1024 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+.jobform-overall {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.jobdetailsbackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* header */
+
+.jobform-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    z-index: 1000;
+    flex-shrink: 0;
+}
+
+.jobform-header h1 {
+    color: #ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 2.5rem !important;
+    font-weight: 600 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1) !important;
+    margin: 0 !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    z-index: 1 !important;
+    padding: 0 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.jobform-header a {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d8d8d8;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: none;
+    border: none;
+    z-index: 2;
+}
+
+.jobform-header a.backbutton {
+    left: 110px;
+}
+
+.jobform-header a:hover {
+    color: #ffffff;
+}
+
+.jobform-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    margin: 100px auto 15px auto;
+    padding: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+    animation: fadeInUp 0.8s ease-out both;
+    width: 95%;
+    max-width: 1200px;
+    z-index: 2;
+    height: auto;
+    max-height: 82vh;
+    overflow-y: auto;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Form Styling */
+.jobform-container h2 {
+    text-align: center;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.jobform-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Form Grid Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Label Styling */
+.form-group label {
+    color: #1a1a1a;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    position: relative;
+    padding-left: 2px;
+}
+
+.form-group label::before {
+    position: absolute;
+    left: -8px;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Input Styling */
+.jobform-container input,
+.jobform-container textarea {
+    padding: 8px 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    letter-spacing: -0.005em;
+}
+
+.jobform-container input:focus,
+.jobform-container textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 1);
+}
+
+.jobform-container input::placeholder,
+.jobform-container textarea::placeholder {
+    color: #666666;
+    font-weight: 400;
+}
+
+/* Textarea specific styling */
+.jobform-container textarea {
+    resize: vertical;
+    min-height: 60px;
+    line-height: 1.4;
+}
+
+/* Button Styling */
+.jobform-container button {
+    padding: 10px 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.jobform-container button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.jobform-container button:active {
+    transform: translateY(-1px);
+}
+
+/* Message Styling */
+.jobform-container .message {
+    margin-top: 20px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-align: center;
+    animation: slideInMessage 0.5s ease-out;
+}
+
+.jobform-container .message.success {
+    color: #047857;
+}
+
+.jobform-container .message.error {
+    color: #dc2626;
+}
+
+@keyframes slideInMessage {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success/Completion Section Styling */
+.completion-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.completion-section img {
+    width: 400px;
+    height: 400px;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.completion-section .message {
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.completion-section .message.success {
+    color: #047857;
+}
+
+.completion-section .message.error {
+    color: #dc2626;
+}
+
+.completion-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.completion-buttons button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 140px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    animation: slideInUp 0.6s ease-out both;
+}
+
+.completion-buttons button:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.completion-buttons button:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.completion-buttons button.home-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.completion-buttons button.home-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.completion-buttons button.post-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.completion-buttons button.post-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.completion-buttons button:active {
+    transform: translateY(-1px);
+}
+
+/* Responsive Design */
+
+/* Large tablets and small laptops */
+@media (max-width: 1024px) {
+    .jobform-container {
+        max-width: 950px;
+        padding: 25px 35px;
+        width: 94%;
+        margin: 95px auto 35px auto;
+        height: auto;
+    }
+
+    .jobform-container h2 {
+        font-size: 1.8rem;
+        margin-bottom: 18px;
+    }
+
+    .form-grid {
+        gap: 14px;
+    }
+
+    .completion-section {
+        padding: 25px;
+        max-width: 450px;
+    }
+
+    .completion-section img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 18px;
+    }
+
+    .completion-buttons {
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .completion-buttons button {
+        padding: 10px 20px;
+        font-size: 13px;
+        min-width: 120px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .jobform-header {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .jobform-header h1 {
+        font-size: 2rem !important;
+    }
+
+    .jobform-header a {
+        font-size: 1rem;
+        left: 20px;
+    }
+
+    .jobform-container {
+        max-width: 750px;
+        padding: 20px 25px;
+        width: 96%;
+        margin: 90px auto 30px auto;
+        height: auto;
+    }
+
+    .jobform-container h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .jobform-container input,
+    .jobform-container textarea {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .jobform-container textarea {
+        min-height: 70px;
+    }
+
+    .jobform-container button {
+        padding: 12px 25px;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+}
+
+/* Large mobile phones */
+@media (max-width: 640px) {
+    .jobform-header {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .jobform-header h1 {
+        font-size: 1.7rem !important;
+    }
+
+    .jobform-header a {
+        font-size: 0.9rem;
+        left: 15px;
+    }
+
+    .jobform-container {
+        max-width: 500px;
+        padding: 25px;
+        margin: 90px auto 25px auto;
+        width: 98%;
+    }
+
+    .jobform-container h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .form-grid {
+        gap: 14px;
+    }
+
+    .jobform-container input,
+    .jobform-container textarea {
+        padding: 11px 14px;
+        font-size: 14px;
+    }
+
+    .jobform-container button {
+        padding: 12px 25px;
+        font-size: 15px;
+    }
+}
+
+/* Standard mobile phones */
+@media (max-width: 576px) {
+    .jobform-header {
+        height: 55px;
+        padding: 0 12px;
+    }
+
+    .jobform-header h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .jobform-header a {
+        font-size: 0.85rem;
+        left: 12px;
+    }
+
+    .jobform-container {
+        max-width: 450px;
+        padding: 20px;
+        margin: 80px auto 20px auto;
+        width: 99%;
+        border-radius: 18px;
+    }
+
+    .jobform-container h2 {
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+    }
+
+    .form-grid {
+        gap: 12px;
+    }
+
+    .jobform-container input,
+    .jobform-container textarea {
+        padding: 10px 12px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .jobform-container textarea {
+        min-height: 100px;
+    }
+
+    .jobform-container button {
+        padding: 11px 20px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .jobform-container .message {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .completion-section {
+        padding: 20px;
+        max-width: 400px;
+    }
+
+    .completion-section img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .completion-section .message {
+        padding: 15px 18px;
+        font-size: 14px;
+    }
+
+    .completion-buttons {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 18px;
+    }
+
+    .completion-buttons button {
+        padding: 10px 18px;
+        font-size: 12px;
+        min-width: 100%;
+    }
+}
+
+/* Small mobile phones */
+@media (max-width: 480px) {
+    .jobform-header {
+        height: 50px;
+        padding: 0 10px;
+    }
+
+    .jobform-header h1 {
+        font-size: 1.3rem !important;
+    }
+
+    .jobform-header a {
+        font-size: 0.8rem;
+        left: 10px;
+    }
+
+    .jobform-container {
+        max-width: 400px;
+        padding: 18px;
+        margin: 75px auto 18px auto;
+        border-radius: 16px;
+    }
+
+    .jobform-container h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .form-grid {
+        gap: 10px;
+    }
+
+    .jobform-container input,
+    .jobform-container textarea {
+        padding: 9px 10px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+
+    .jobform-container textarea {
+        min-height: 90px;
+    }
+
+    .jobform-container button {
+        padding: 10px 18px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+
+    .jobform-container .message {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+/* Extra small mobile phones */
+@media (max-width: 360px) {
+    .jobform-header {
+        height: 45px;
+        padding: 0 8px;
+    }
+
+    .jobform-header h1 {
+        font-size: 1.2rem !important;
+    }
+
+    .jobform-header a {
+        font-size: 0.75rem;
+        left: 8px;
+    }
+
+    .jobform-container {
+        max-width: 320px;
+        padding: 15px;
+        margin: 70px auto 15px auto;
+        border-radius: 14px;
+    }
+
+    .jobform-container h2 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .form-grid {
+        gap: 8px;
+    }
+
+    .jobform-container input,
+    .jobform-container textarea {
+        padding: 8px 9px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+
+    .jobform-container textarea {
+        min-height: 80px;
+    }
+
+    .jobform-container button {
+        padding: 9px 15px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+
+    .jobform-container .message {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Ultra small devices */
+@media (max-width: 320px) {
+    .jobform-header {
+        height: 45px;
+        padding: 0 6px;
+    }
+
+    .jobform-header h1 {
+        font-size: 1.1rem !important;
+    }
+
+    .jobform-header a {
+        font-size: 0.7rem;
+        left: 6px;
+    }
+
+    .jobform-container {
+        max-width: 280px;
+        padding: 12px;
+        margin: 65px auto 12px auto;
+        border-radius: 12px;
+        max-height: 80vh;
+    }
+
+    .jobform-container h2 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    .form-grid {
+        gap: 6px;
+        margin-bottom: 6px;
+    }
+
+    .jobform-container input,
+    .jobform-container textarea {
+        padding: 6px 8px;
+        font-size: 11px;
+        border-radius: 4px;
+    }
+
+    .jobform-container textarea {
+        min-height: 50px;
+    }
+
+    .jobform-container button {
+        padding: 8px 12px;
+        font-size: 11px;
+        border-radius: 4px;
+    }
+
+    .completion-section {
+        padding: 10px;
+        max-width: 260px;
+    }
+
+    .completion-section img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    .completion-section .message {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .completion-buttons button {
+        padding: 6px 10px;
+        font-size: 10px;
+        min-width: 80px;
+    }
+}
+
+/* Landscape Orientation Optimizations */
+@media (orientation: landscape) and (max-height: 600px) {
+    .jobform-overall {
+        min-height: 120vh;
+    }
+
+    .jobform-header {
+        height: 60px;
+    }
+
+    .jobform-header h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .jobform-container {
+        margin: 80px auto 25px auto;
+        padding: 20px 30px;
+        min-height: auto;
+        max-width: 1100px;
+        width: 95%;
+    }
+
+    .jobform-container h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .form-grid {
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .jobform-container input,
+    .jobform-container textarea {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .jobform-container textarea {
+        min-height: 60px;
+    }
+
+    .jobform-container button {
+        padding: 10px 25px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+/* Landscape on mobile devices */
+@media (orientation: landscape) and (max-height: 500px) {
+    .jobform-overall {
+        min-height: 140vh;
+    }
+
+    .jobform-header {
+        height: 50px;
+    }
+
+    .jobform-header h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .jobform-container {
+        margin: 75px auto 20px auto;
+        padding: 15px 25px;
+        max-width: 1000px;
+    }
+
+    .jobform-container h2 {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+
+    .form-grid {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .jobform-container input,
+    .jobform-container textarea {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .jobform-container textarea {
+        min-height: 50px;
+    }
+
+    .jobform-container button {
+        padding: 8px 20px;
+        font-size: 13px;
+        margin-top: 8px;
+    }
+}
+
+/* Beautiful Spiral Waves Animation */
+.jobform-overall::before {
+    content: '';
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    width: 120px;
+    height: 120px;
+    background: conic-gradient(from 0deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.1), transparent);
+    border-radius: 50%;
+    animation: spiralWave1 12s linear infinite;
+    z-index: 1;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+.jobform-overall::after {
+    content: '';
+    position: fixed;
+    bottom: 15%;
+    right: 8%;
+    width: 180px;
+    height: 180px;
+    background: conic-gradient(from 180deg, rgba(118, 75, 162, 0.15), rgba(102, 126, 234, 0.08), transparent);
+    border-radius: 50%;
+    animation: spiralWave2 15s linear infinite reverse;
+    z-index: 1;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* Additional morphing shapes */
+.jobdetailsbackground::before {
+    content: '';
+    position: fixed;
+    top: 40%;
+    left: 2%;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.12), rgba(102, 126, 234, 0.06));
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: morphShape1 8s ease-in-out infinite;
+    z-index: 1;
+    will-change: transform, border-radius;
+    transform: translateZ(0);
+}
+
+.jobdetailsbackground::after {
+    content: '';
+    position: fixed;
+    top: 20%;
+    right: 3%;
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, rgba(118, 75, 162, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morphShape2 10s ease-in-out infinite reverse;
+    z-index: 1;
+    will-change: transform, border-radius;
+    transform: translateZ(0);
+}
+
+@keyframes spiralWave1 {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 0.7;
+    }
+}
+
+@keyframes spiralWave2 {
+    0% {
+        transform: rotate(0deg) scale(1) translateX(0px);
+        opacity: 0.5;
+    }
+    33% {
+        transform: rotate(120deg) scale(0.8) translateX(-20px);
+        opacity: 0.9;
+    }
+    66% {
+        transform: rotate(240deg) scale(1.1) translateX(15px);
+        opacity: 0.6;
+    }
+    100% {
+        transform: rotate(360deg) scale(1) translateX(0px);
+        opacity: 0.5;
+    }
+}
+
+@keyframes morphShape1 {
+    0%, 100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translateY(-25px) rotate(90deg);
+    }
+    50% {
+        border-radius: 70% 30% 40% 60% / 40% 70% 30% 60%;
+        transform: translateY(-15px) rotate(180deg);
+    }
+    75% {
+        border-radius: 40% 60% 60% 40% / 70% 40% 60% 30%;
+        transform: translateY(-30px) rotate(270deg);
+    }
+}
+
+@keyframes morphShape2 {
+    0%, 100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translateX(0px) scale(1);
+    }
+    50% {
+        border-radius: 30% 70% 60% 40% / 40% 60% 30% 70%;
+        transform: translateX(-20px) scale(1.1);
+    }
+}
+
+/* Hide floating elements on small screens for better performance */
+@media (max-width: 768px) {
+    .jobform-overall::before,
+    .jobform-overall::after,
+    .jobdetailsbackground::before,
+    .jobdetailsbackground::after {
+        display: none;
+    }
+}
