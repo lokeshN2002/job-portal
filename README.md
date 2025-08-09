@@ -264,7 +264,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Lokesh N**
 - GitHub: [@lokeshN2002](https://github.com/lokeshN2002)
-- Email: logesn1832@gmail.com
+- Email: lokeshn1832@gmail.com
 
 ---
 
