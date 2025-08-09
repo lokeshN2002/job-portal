@@ -2,7 +2,7 @@ import home from '../asset/images/home.png';
 import { useState } from 'react';
 import { supabase } from '../Api';
 import bcrypt from 'bcryptjs';
-import '../styles/index.css';  // Import centralized CSS first
+import '../styles/index.css'; 
 import '../styles/login.css';
 
 function Register() {

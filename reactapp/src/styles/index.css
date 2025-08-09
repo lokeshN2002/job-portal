@@ -104,6 +104,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   font-family: var(--font-primary);
   font-weight: 400;
@@ -111,16 +116,36 @@ body {
   letter-spacing: -0.01em;
   overflow-x: hidden;
   background: var(--gradient-primary);
+  /* Enhanced smoothness */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ========================================
    COMMON UTILITY CLASSES
    ======================================== */
 
-/* GPU ACCELERATION */
+/* ENHANCED GPU ACCELERATION & SMOOTHNESS */
 .gpu-accelerated {
   transform: translateZ(0);
-  will-change: transform;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+}
+
+/* UNIVERSAL SMOOTH TRANSITIONS */
+* {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* SMOOTH SCROLLING FOR ALL CONTAINERS */
+* {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .gpu-accelerated-opacity {
@@ -135,20 +160,20 @@ body {
 
 /* GLASSMORPHISM CARD */
 .glass-card {
-  background: var(--glass-bg) !important;
-  backdrop-filter: var(--glass-blur) !important;
-  border: 1px solid var(--glass-border) !important;
-  border-radius: var(--border-radius-lg) !important;
-  box-shadow: var(--glass-shadow) !important;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--glass-shadow);
 }
 
 /* BRAND GRADIENTS */
 .bg-gradient-primary {
-  background: var(--gradient-primary) !important;
+  background: var(--gradient-primary);
 }
 
 .bg-gradient-hover {
-  background: var(--gradient-hover) !important;
+  background: var(--gradient-hover);
 }
 
 .text-gradient-primary {
@@ -160,58 +185,71 @@ body {
 
 /* TYPOGRAPHY UTILITIES */
 .font-primary {
-  font-family: var(--font-primary) !important;
+  font-family: var(--font-primary);
 }
 
 .font-heading {
-  font-family: var(--font-heading) !important;
+  font-family: var(--font-heading);
 }
 
 .font-display {
-  font-family: var(--font-display) !important;
+  font-family: var(--font-display);
 }
 
-/* SMOOTH TRANSITIONS */
+/* ENHANCED SMOOTH TRANSITIONS */
 .transition-smooth {
-  transition: all 0.3s var(--ease-smooth) !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 .transition-transform {
-  transition: transform 0.4s var(--ease-smooth) !important;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .transition-bounce {
-  transition: transform 0.4s var(--ease-bounce) !important;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.transition-ultra-smooth {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(0);
+  will-change: transform, opacity, box-shadow;
+  backface-visibility: hidden;
 }
 
 /* HOVER EFFECTS */
 .hover-lift:hover {
-  transform: translateY(-3px) translateZ(0) !important;
+  transform: translateY(-3px) translateZ(0);
 }
 
 .hover-lift-sm:hover {
-  transform: translateY(-2px) translateZ(0) !important;
+  transform: translateY(-2px) translateZ(0);
 }
 
 .hover-scale:hover {
-  transform: scale(1.05) translateZ(0) !important;
+  transform: scale(1.05) translateZ(0);
 }
 
 /* COMMON SHADOWS */
 .shadow-light {
-  box-shadow: var(--shadow-light) !important;
+  box-shadow: var(--shadow-light);
 }
 
 .shadow-medium {
-  box-shadow: var(--shadow-medium) !important;
+  box-shadow: var(--shadow-medium);
 }
 
 .shadow-heavy {
-  box-shadow: var(--shadow-heavy) !important;
+  box-shadow: var(--shadow-heavy);
 }
 
 .shadow-hover:hover {
-  box-shadow: var(--shadow-hover) !important;
+  box-shadow: var(--shadow-hover);
 }
 
 /* ========================================
@@ -233,20 +271,20 @@ body {
 }
 
 .common-header h1 {
-  color: #ffffff !important;
-  font-family: var(--font-heading) !important;
-  font-size: 2.5rem !important;
-  font-weight: 600 !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1) !important;
-  margin: 0 !important;
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  text-align: center !important;
-  z-index: 1 !important;
-  padding: 0 !important;
-  letter-spacing: -0.02em !important;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  padding: 0;
+  letter-spacing: -0.02em;
 }
 
 .common-header a {
@@ -272,31 +310,31 @@ body {
    COMMON BUTTON STYLES
    ======================================== */
 .btn-primary {
-  background: var(--gradient-primary) !important;
-  border: none !important;
-  border-radius: var(--border-radius-xl) !important;
-  padding: 12px 30px !important;
-  font-weight: 600 !important;
-  font-size: 1rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
-  transition: all 0.3s var(--ease-smooth) !important;
-  position: relative !important;
-  overflow: hidden !important;
-  text-decoration: none !important;
-  color: white !important;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: var(--border-radius-xl);
+  padding: 12px 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s var(--ease-smooth);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
   cursor: pointer;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) translateZ(0) !important;
-  box-shadow: 0 10px 25px var(--brand-blue-40) !important;
-  background: var(--gradient-hover) !important;
-  color: white !important;
+  transform: translateY(-3px) translateZ(0);
+  box-shadow: 0 10px 25px var(--brand-blue-40);
+  background: var(--gradient-hover);
+  color: white;
 }
 
 .btn-primary:active {
-  transform: translateY(-1px) translateZ(0) !important;
+  transform: translateY(-1px) translateZ(0);
 }
 
 /* ========================================
@@ -369,7 +407,7 @@ body {
 /* Tablets */
 @media (max-width: 992px) {
   .responsive-container {
-    flex-direction: column !important;
+    flex-direction: column;
     gap: 2.5rem;
     padding: 40px 20px;
   }
@@ -384,7 +422,7 @@ body {
 
   /* Hide floating animations on mobile for performance */
   .floating-element {
-    display: none !important;
+    display: none;
   }
 }
 

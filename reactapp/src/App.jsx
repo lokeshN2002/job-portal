@@ -5,7 +5,6 @@ import Getjob from './pages/Getjob'
 import Postjob from './pages/Postjob'
 import Jobdetails from './pages/jobdetails'
 import Register from './pages/Register'
-import Test from './pages/text'
 
 const router = createBrowserRouter([
   {
@@ -26,9 +25,6 @@ const router = createBrowserRouter([
   }, {
     path: '/jobdetails/:id',
     element: <Jobdetails />,
-  }, {
-    path: '/test',
-    element: <Test />,
   }
 ]);
 

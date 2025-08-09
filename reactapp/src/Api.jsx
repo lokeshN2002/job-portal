@@ -11,6 +11,7 @@ if (!supabaseUrl || !supabaseKey) {
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
+//fetch jobs function
 export async function fetchJobs() {
     try {
         const { data, error } = await supabase.from('postjob').select('*');

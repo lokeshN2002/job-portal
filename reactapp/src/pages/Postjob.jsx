@@ -3,7 +3,7 @@ import jobdetailsfield from '../components/jobdetailsfield';
 import happy from '../asset/images/happy.png'
 import { useState } from 'react';
 import { supabase } from '../Api';
-import '../styles/index.css';  // Import centralized CSS first
+import '../styles/index.css'; 
 import '../styles/postjob.css'
 function PostJob() {
     const [formData, setFormData] = useState({
